@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoGo.Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      width: 100%;
+      background: linear-gradient(90deg, #f97316, #fb923c);
+      color: #fff;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      padding: 12px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo img {
+      width: 36px;
+      height: auto;
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-text span {
+      color: #fff;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 10px 20px;
+      position: relative;
+      min-width: 220px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 90px 10px 14px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .search-bar button {
+      position: absolute;
+      right: 4px;
+      top: 4px;
+      bottom: 4px;
+      padding: 0 16px;
+      border: none;
+      border-radius: 6px;
+      background: #f97316;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .search-bar button:hover {
+      background: #ea580c;
+    }
+
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 12px 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #f97316;
+    }
+
+    /* ===== VITRINE ===== */
+    h2 {
+      text-align: center;
+      margin: 30px 0 20px;
+      color: #333;
+      font-size: 26px;
+    }
+
+    .vitrine {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .produto {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .produto:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .produto img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .produto h3 {
+      font-size: 16px;
+      color: #333;
+      min-height: 40px;
+      margin-bottom: 6px;
+    }
+
+    .preco {
+      font-size: 18px;
+      font-weight: bold;
+      color: #f97316;
+      margin: 8px 0;
+    }
+
+    h5 {
+      color: #27ae60;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .descricao {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .botao {
+      display: inline-block;
+      padding: 8px 14px;
+      background: #f97316;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .botao:hover {
+      background: #ea580c;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #222;
+      color: #ccc;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    footer h3 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #f97316;
+    }
+
+    .social {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social a {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    /* ===== RESPONSIVIDADE ===== */
+    @media (max-width: 768px) {
+      .search-bar {
+        width: 100%;
+        order: 3;
+        margin-top: 10px;
+      }
+
+      .vitrine {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .vitrine {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .produto img {
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== CABEÇALHO ===== -->
+  <header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="logo.png" alt="logo shop">
+        <div class="logo-text">LoGo</div>
+      </a>
+
+      <div class="search-bar">
+        <form onsubmit="event.preventDefault(); alert('Pesquisando: ' + this.query.value);">
+          <input type="search" name="query" placeholder="Procure produtos, marcas ou categorias...">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#">Eletrônicos</a>
+      <a href="#">Games</a>
+      <a href="#">Celulares</a>
+      <a href="#">Móveis</a>
+      <a href="#">Roupas</a>
+      <a href="#">Ofertas</a>
+    </nav>
+  </header>
+
+  <!-- ===== VITRINE ===== -->
+  <h2>🔥 Melhores Ofertas</h2>
+  <div class="vitrine">
+    <div class="produto">
+      <img src="video game.png" alt="video game stick">
+      <h3>Video Game Stick 4K</h3>
+      <p class="descricao">Com 20000/30000 Jogos 64gb 2 Controles Sem Fio Console Portátil Original</p>
+      <p class="preco">R$ 92,99</p>
+      <h5>27% DE DESCONTO NO PIX</h5>
+      <a href="https://s.shopee.com.br/5AjhCFWITH" class="botao">Comprar</a>
+    </div>
+
+    <div class="produto">
+      <img src="roupa.png" alt="roupa masculina">
+      <h3>Kit 6 Camisetas Mais Procuradas Alpha</h3>
+      <p class="descricao">Conforto, Estilo e Performance para o Seu Dia a Dia</p>
+      <p class="preco">R$ 147,99</p>
+      <p><s>R$ 198,99</s></p>
+      <a href="https://s.shopee.com.br/3VbTF2j3N6" class="botao">Comprar</a>
+    </div>
+
+    <div class="produto">
+      <img src="fone.png" alt="fone de ouvido">
+      <h3>Caixa De Som Go 3 Bluetooth</h3>
+      <p class="descricao">Portátil À Prova D'Água Com Bateria Esportiva</p>
+      <p class="preco">R$ 37,99</p>
+      <a href="https://s.shopee.com.br/1LX09xIoiG" class="botao">Comprar</a>
+    </div>
+
+    <div class="produto">
+      <img src="caneta.png" alt="Caneta de arte">
+      <h3>Canetas Marcadoras Dupla Ponta</h3>
+      <p class="descricao">80 cores para arte e aquarela.</p>
+      <p class="preco">R$ 9,99</p>
+      <h5>OFERTA RELÂMPAGO</h5>
+      <a href="https://s.shopee.com.br/9KZEdKrOwP" class="botao">Comprar</a>
+    </div>
+
+    <div class="produto">
+      <img src="mochila.png" alt="Mochila de viagem">
+      <h3>Mochila Executiva Impermeável</h3>
+      <p class="descricao">Reforçada, ideal para notebooks.</p>
+      <p class="preco">R$ 139,98</p>
+      <h5>OFERTA RELÂMPAGO</h5>
+      <a href="https://s.shopee.com.br/5VMW5EvI9O" class="botao">Comprar</a>
+    </div>
+
+    <div class="produto">
+      <img src="relogio.png" alt="relogio">
+      <h3>2025 Nova Série 8 Relógio T800 Ultra Smart Watch</h3>
+      <p class="descricao">Esportivo Sem Fio À Prova D'água T800 Ultra2 MAX</p>
+      <p class="preco">R$ 38,30</p>
+      <a href="https://s.shopee.com.br/6VF6KE1l09" class="botao">Comprar</a>
+    </div>
+
+    <div class="produto">
+      <img src="maquininha.png" alt="maquininha">
+      <h3>Máquina e aparador de pelos</h3>
+      <p class="descricao">Proporciona um corte preciso e confortável</p>
+      <p class="preco">R$ 9,50</p>
+      <P><s>10,99</s></P>
+      <a href="https://s.shopee.com.br/4ArDFbzL1x" class="botao">Comprar</a>
+    </div>
+
+    <div class="produto">
+      <img src="sapato.png" alt="sapato">
+      <h3>Sapato Casual Masculino Oxford Derby</h3>
+      <p class="descricao">Elegância e Conforto para Todas as Ocasiões</p>
+      <p class="preco">R$ 99,99</p>
+      <p><s>R$ 144,00</s></p>
+      <h5>30%OFF</h5>
+      <a href="https://mercadolivre.com/sec/2KFvuPg" class="botao">Comprar</a>
+    </div>
+    
+    <div class="produto">
+      <img src="aspirador.png" alt="aspirador">
+      <h3>Aspirador De Pó Usb Portátil</h3>
+      <p class="descricao">SUCÇÃO FORTE E LIMPEZA COMPLETA PARA CASA, CARRO E O QUE MAIS QUISER</p>
+      <p class="preco">R$ 25,99</p>
+      <p><s>R$ 78,00</s></p>
+      <h5>FRETE GRATIS</h5>
+      <a href="https://s.shopee.com.br/qb2pbLAdb" class="botao">Comprar</a>
+  </div>
+
+  <div class="produto">
+      <img src="compressor.png" alt="compressor">
+      <h3>Compressor de Ar Portatil</h3>
+      <p class="descricao">Recarregavel Com Fio Sem Fio Digital USB Calibrador Pneu de Carro Automóvel</p>
+      <p class="preco">R$ 50,00</p>
+      <p><s>R$ 150,00</s></p>
+      <h5>-67%</h5>
+      <a href="https://s.shopee.com.br/3Vbo1W7ZJz" class="botao">Comprar</a>
+  </div>
+
+<div class="produto">
+      <img src="projetor.png" alt="projetor">
+      <h3>Projetor Smart Portátil</h3>
+      <p class="descricao">Full Hd 4k Android 11 Wi-fi Bluetooth Mini Projetor Home Theater Cinema Em Casa Cor Branco Imagem Nítida Som Potente Compatível Com Diversos Dispositivos</p>
+      <p class="preco">R$ 194,35</p>
+      <p><s>R$ 299,00</s></p>
+      <h5>35%OFF</h5>
+      <a href="https://mercadolivre.com/sec/1NFrUcy" class="botao">Comprar</a>
+  </div>
+
+
+  </div>  
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h3>LoGo Shop</h3>
+        <p>Corre LoGo! Ofertas incríveis e entrega rápida em todo o Brasil 🚀</p>
+      </div>
+      <div>
+        <h3>Links Úteis</h3>
+        <a href="#">Sobre nós</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Ajuda</a>
+      </div>
+      <div>
+        <h3>Redes Sociais</h3>
+        <div class="social">
+          <a href="https://www.instagram.com/logo_oficial.shop?igsh=MTFkcWlrZ3prZWxnOQ=="><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@logo.shop2.0?_t=ZM-90mBjQ5yOyq&_r=1"><i class="fab fa-tiktok"></i></a>
+          <a href="https://chat.whatsapp.com/IwA69Jde9HjE8eRvKRa8wH"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:20px; color:#888;">© 2025 LoGo Shop - Todos os direitos reservados</p>
+  </footer>
+</body>
+</html>
+
